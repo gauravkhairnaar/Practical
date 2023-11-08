@@ -1,0 +1,33 @@
+
+............... LP-1 IoT Practical No.4........................................
+/*Design and implement Smoke and LPG Gas detector IoT system using MQ-2 Gas Sensor for 
+Medical/Health application, Social Application.*/
+...............................................................................
+
+int led = 13;
+int mq2 = A0;
+float gas;
+void setup()
+{
+  pinMode(led, OUTPUT);
+  pinMode(mq2, INPUT);
+  Serial.begin(9600);
+  delay(20000);
+}
+
+void loop()
+{
+  gas = analogRead(mq2);
+
+  if (gas > 165)
+  {
+    Serial.println(gas);
+    digitalWrite(led, HIGH);   
+  }
+  else
+  {
+     Serial.println(gas);
+    digitalWrite(led, LOW);
+  }
+  delay(2000);
+}

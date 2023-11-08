@@ -1,0 +1,41 @@
+............... LP-1 IoT Practical No.3........................................
+/*Design and implement real time soil parameter monitoring system using 
+  Android phone (Blynk App.) and Soil Moisture Sensor. */
+...............................................................................
+
+
+int sensor = 4;
+int need;
+int led = 13;
+
+void setup()
+{
+Serial.begin(9600);
+pinMode (sensor,INPUT);
+pinMode (led,OUTPUT);
+
+}
+
+void loop()
+{
+
+need=digitalRead(sensor);
+Serial.println(need);
+
+if(need == HIGH)
+{
+  Serial.println("Water is Needed");
+  digitalWrite(led,HIGH);
+ 
+  delay(400);
+}
+else 
+{
+  Serial.println("Water Not Needed");
+  digitalWrite(led,LOW);
+  
+  delay(400);
+}
+
+delay(100);
+}
